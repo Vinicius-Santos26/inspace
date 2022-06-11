@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inspace/src/app/notifiers/reservations_notifier.dart';
+import 'package:inspace/src/utils/export.dart';
 import 'package:intl/intl.dart';
 import 'package:inspace/src/app/components/base_page/base_page.dart';
 import 'package:inspace/src/app/components/reservation_card/reservation_card.dart';
@@ -44,7 +45,7 @@ class _MyReservationsPageState extends State<MyReservationsPage> {
                               listItem.amountOfPeople.toString(),
                           reservationCheckIn: listItem.checkIn,
                           onPressed: () => notifier.checkIn(index),
-                          buttonText: 'Realizar Check-in',
+                          buttonText: checkIn,
                         ),
                       ),
                     );

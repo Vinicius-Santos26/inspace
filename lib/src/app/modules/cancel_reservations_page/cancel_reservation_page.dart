@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inspace/src/app/components/base_page/base_page.dart';
 import 'package:inspace/src/app/components/reservation_card/reservation_card.dart';
 import 'package:inspace/src/app/notifiers/reservations_notifier.dart';
+import 'package:inspace/src/utils/export.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -51,7 +52,7 @@ class _CancelReservationsPageState extends State<CancelReservationsPage> {
                           reservationCheckIn: listItem.checkIn,
                           onPressed: () =>
                               notifier.cancelReservation(listItem.id),
-                          buttonText: 'Cancelar',
+                          buttonText: cancel,
                         ),
                       ),
                     );

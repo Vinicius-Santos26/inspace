@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inspace/src/app/components/form_button/form_button.dart';
 import 'package:inspace/src/app/modules/new_reservation_page/new_reservation_page_controller.dart';
 import 'package:inspace/src/app/notifiers/reservations_notifier.dart';
+import 'package:inspace/src/utils/export.dart';
 import 'package:intl/intl.dart';
 import 'package:inspace/src/app/components/base_page/base_page.dart';
 import 'package:provider/provider.dart';
@@ -34,19 +35,19 @@ class _NewReservationPageState extends State<NewReservationPage> {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-        title: 'Nova reserva',
+        title: newReservation,
         showAppBar: true,
         body: SingleChildScrollView(child:
             Consumer<ReservationsNotifier>(builder: (context, notifier, child) {
           return Column(children: [
             Text(controller.reservationDate == null
-                ? 'Selecione uma data para a viagem:'
+                ? selectDate
                 : DateFormat("dd/MM/yyyy")
                     .format(controller.reservationDate!)
                     .toString()),
             const SizedBox(height: 8),
             FormButton(
-                buttonText: 'Selecione uma data',
+                buttonText: select,
                 onPressed: () {
                   showDatePicker(
                           context: context,
@@ -60,7 +61,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
                 }),
             const SizedBox(height: 16),
             FormInput(
-                label: 'Quantidade de pessoas',
+                label: amountOfPeople,
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 userInputController: reservationAmountOfPeopleController),
@@ -73,7 +74,7 @@ class _NewReservationPageState extends State<NewReservationPage> {
                         int.parse(reservationAmountOfPeopleController.text));
                 Navigator.of(context).pop();
               },
-              buttonText: 'Reservar',
+              buttonText: reserve,
             ),
           ]);
         })));

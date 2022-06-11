@@ -3,6 +3,7 @@ import 'package:inspace/src/app/components/base_page/base_page.dart';
 import 'package:inspace/src/app/components/form_button/form_button.dart';
 import 'package:inspace/src/app/components/form_input/form_input.dart';
 import 'package:inspace/src/app/modules/home_page/home_page.dart';
+import 'package:inspace/src/utils/export.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({Key? key}) : super(key: key);
@@ -16,12 +17,12 @@ class IntroPage extends StatelessWidget {
             Image.asset('assets/images/logo.png'),
             const SizedBox(height: 16),
             const FormInput(
-                label: 'Email',
+                label: eMail,
                 keyboardType: TextInputType.emailAddress,
                 obscureText: false),
             const SizedBox(height: 16),
             const FormInput(
-                label: 'Senha',
+                label: password,
                 keyboardType: TextInputType.text,
                 obscureText: true),
             const SizedBox(height: 32),
@@ -30,7 +31,7 @@ class IntroPage extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const HomePage()));
               },
-              buttonText: 'Login',
+              buttonText: login,
             ),
             const SizedBox(height: 16)
           ],

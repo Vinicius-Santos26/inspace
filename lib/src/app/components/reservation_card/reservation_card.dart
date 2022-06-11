@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inspace/src/app/components/reservation_card/button/reservation_card_button.dart';
+import 'package:inspace/src/utils/export.dart';
 
 class ReservationCard extends StatelessWidget {
   final String reservationDate;
@@ -27,13 +28,13 @@ class ReservationCard extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: Column(
                 children: [
-                  const Text('Reserva',
+                  const Text(cardTitle,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                   const SizedBox(height: 8),
-                  Text('Data: $reservationDate'),
+                  Text('$date: $reservationDate'),
                   const SizedBox(height: 4),
-                  Text('Quantidade de pessoas: $reservationAmountOfPeople'),
+                  Text('$amountOfPeople: $reservationAmountOfPeople'),
                   const SizedBox(height: 8),
                   !reservationCheckIn
                       ? ReservationCardButton(
@@ -41,7 +42,7 @@ class ReservationCard extends StatelessWidget {
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
-                            Text('Check-in:'),
+                            Text(cardCheckIn),
                             Icon(
                               Icons.check_circle_outline_rounded,
                               color: Colors.green,

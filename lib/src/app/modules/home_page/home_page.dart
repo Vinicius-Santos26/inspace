@@ -4,6 +4,7 @@ import 'package:inspace/src/app/components/form_button/form_button.dart';
 import 'package:inspace/src/app/modules/cancel_reservations_page/cancel_reservation_page.dart';
 import 'package:inspace/src/app/modules/my_reservations/my_reservations_page.dart';
 import 'package:inspace/src/app/modules/new_reservation_page/new_reservation_page.dart';
+import 'package:inspace/src/utils/export.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,27 +21,27 @@ class HomePage extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-                title: const Text("Integrantes - Turma 3SIR"),
+                title: const Text(popUpTitle),
                 content: SingleChildScrollView(
                     child: Column(
                   children: const [
-                    Text("Carolina de Jesus Bonametti RM:85513"),
+                    Text(carolInfo),
                     SizedBox(height: 4),
-                    Text("Giovanna Benedetti Ferreira RM:85267"),
+                    Text(giovannaInfo),
                     SizedBox(height: 4),
-                    Text("Vinicius de Oliveira Santos RM:86082")
+                    Text(viniciusInfo)
                   ],
                 )),
                 actions: <Widget>[
                   TextButton(
                       onPressed: () => {Navigator.of(context).pop()},
-                      child: const Text('Voltar'))
+                      child: const Text(back))
                 ]);
           });
     }
 
     return BasePage(
-        title: 'Home',
+        title: home,
         showAppBar: true,
         body: Column(
           mainAxisSize: MainAxisSize.max,
@@ -49,21 +50,21 @@ class HomePage extends StatelessWidget {
           children: [
             FormButton(
                 onPressed: () => navigate(const NewReservationPage()),
-                buttonText: 'Nova reserva'),
+                buttonText: newReservation),
             const SizedBox(height: 16),
             FormButton(
                 onPressed: () => navigate(const MyReservationsPage()),
-                buttonText: 'Minhas Reservas'),
+                buttonText: myReservations),
             const SizedBox(height: 16),
             FormButton(
                 onPressed: () => navigate(const CancelReservationsPage()),
-                buttonText: 'Cancelar reserva'),
+                buttonText: cancelReservations),
             const Spacer(),
             FormButton(
                 onPressed: () {
                   _showDialog();
                 },
-                buttonText: 'Integrantes'),
+                buttonText: members),
             const SizedBox(height: 16),
           ],
         ));
