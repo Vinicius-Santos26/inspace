@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inspace/src/app/modules/intro_page/intro_page.dart';
 import 'package:inspace/src/app/notifiers/reservations_notifier.dart';
 import 'package:inspace/src/app/notifiers/settings_notifier.dart';
+import 'package:inspace/src/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         ],
         child: Consumer<SettingsNotifier>(builder: (context, notifier, child) {
           return MaterialApp(
-              darkTheme: ThemeData.dark(),
+              theme: lightTheme,
+              darkTheme: darkTheme,
               themeMode:
                   notifier.isDarkModeEnabled ? ThemeMode.dark : ThemeMode.light,
               home: const IntroPage());
